@@ -1,0 +1,55 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>{{ time }}</mat-toolbar>
+    <mat-nav-list>
+      <div class="logo">
+        <img src="./../../assets/images/logo.png" alt="" />
+      </div>
+
+      <a mat-list-item [routerLink]="['/layout/dashboard']" routerLinkActive="router-link-active">
+        <mat-icon>space_dashboard</mat-icon> &nbsp; &nbsp; Dashboard
+      </a>
+      <a mat-list-item [routerLink]="['/layout/user']" routerLinkActive="router-link-active">
+        <mat-icon>people</mat-icon> &nbsp; &nbsp; Users
+      </a>
+      <a mat-list-item [routerLink]="['/layout/institutions']" routerLinkActive="router-link-active">
+        <mat-icon>health_and_safety</mat-icon> &nbsp; &nbsp; Institutions
+      </a>
+      <a mat-list-item [routerLink]="['/layout/payments']" routerLinkActive="router-link-active">
+        <mat-icon>money</mat-icon> &nbsp; &nbsp; Payments
+      </a>
+      <a mat-list-item [routerLink]="['/layout/settings']" routerLinkActive="router-link-active">
+        <mat-icon>settings</mat-icon> &nbsp; &nbsp; Settings
+      </a>
+      <a mat-list-item [routerLink]="['/layout/tickets']" routerLinkActive="router-link-active">
+        <mat-icon>support_agent</mat-icon> &nbsp; &nbsp; Tickets
+      </a>
+      <a mat-list-item [routerLink]="['/layout/users']" routerLinkActive="router-link-active">
+        <mat-icon>people</mat-icon> &nbsp; &nbsp; System Users
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>announcement</mat-icon>
+      </button>
+
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>person</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>{{ user?.first_name }}</button>
+        <button mat-menu-item (click)="signOut()">Sign Out</button>
+      </mat-menu>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

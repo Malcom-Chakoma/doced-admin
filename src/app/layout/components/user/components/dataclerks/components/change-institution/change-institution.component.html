@@ -1,0 +1,23 @@
+<h1 mat-header>Change Institution</h1>
+<mat-dialog-content>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <div>
+      <mat-form-field appearance="outline">
+          <mat-label>Select Institution</mat-label>
+          <mat-select formControlName="institution" >
+              <div class="mat-select-search">
+                  <input matInput type="search" placeholder="Select institution"
+                      (keyup)="filterOptions($event.target.value)" />
+              </div>
+              <mat-option *ngFor="let institution of filtered_institutions" [value]="institution._id">
+                  {{ institution.name }}</mat-option>
+          </mat-select>
+      </mat-form-field>
+  </div>    
+    <div>
+      <button mat-stroked-button type="submit" [disabled]="form.invalid">
+        Change
+      </button>
+    </div>
+  </form>
+</mat-dialog-content>

@@ -1,0 +1,54 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <div class="card">
+      <div class="card-logo">
+        <img src="../../../assets/images/logo.png" alt="" srcset="" />
+      </div>
+      <div class="card-header">
+        <h1><b>Log In</b></h1>
+        <p>Provide Username and Password to LogIn</p>
+      </div>
+      <div class="card-body">
+        <input type="email" formControlName="email" placeholder="Enter email" />
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="Enter password"
+        />
+      </div>
+      <div class="card-footer">
+        <button mat-stroked-button type="submit" [disabled]="form.invalid">
+          LogIn
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- <div class="container">
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+        <div>
+            <h1>DocEd</h1>
+            <p>Login</p>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" placeholder="placeHolder" />
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password" placeholder="placeHolder" />
+            </mat-form-field>
+        </div>
+        <div>
+            <button mat-stroked-button type="submit" [disabled]="form.invalid">
+                Sign in
+            </button>
+        </div>
+    </form>
+
+</div> -->

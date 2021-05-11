@@ -1,0 +1,36 @@
+
+<div>
+    <button mat-stroked-button (click)="addDataClerk()">
+        <mat-icon>add</mat-icon>data-clerk
+    </button>
+</div>
+
+<div>
+    <mat-table [dataSource]="dataSource">    
+        <ng-container matColumnDef="first_name">
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.first_name}} {{element.last_name}} </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef> Email</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="institution">
+            <mat-header-cell *matHeaderCellDef> Institution</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.institution?.name}} </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="action">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <button mat-stroked-button (click)="changeInstitution(element)">
+                    change
+                </button>
+            </mat-cell>
+        </ng-container>  
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</div>

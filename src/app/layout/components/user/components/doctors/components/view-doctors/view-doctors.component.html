@@ -1,0 +1,97 @@
+<mat-accordion class="example-headers-align">
+  <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Personal data </mat-panel-title>
+      <mat-panel-description>
+        <mat-icon>account_circle</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div class="expansion-content">
+      <div class="field">
+        <div class="label">Name</div>
+        <div class="value">{{ data?.first_name }} {{ data?.last_name }}</div>
+      </div>
+      <div class="field">
+        <div class="label">Reg Number</div>
+        <div class="value">{{ data?.reg_number }}</div>
+      </div>
+      <div class="field">
+        <div class="label">Gender</div>
+        <div class="value"></div>
+      </div>
+      <div class="field">
+        <div class="label">Email</div>
+        <div class="value">{{ data?.email }}</div>
+      </div>
+    </div>
+    <mat-action-row>
+      <button mat-button color="primary" (click)="nextStep()">Next</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Institutions </mat-panel-title>
+      <mat-panel-description>
+        <mat-icon>health_and_safety</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div class="expansion-content">
+      <div class="field">
+        <div class="label">Name</div>
+        <div class="value">{{ institution.name }}</div>
+      </div>
+      <div class="field">
+        <div class="label">Email</div>
+        <div class="value">{{ institution.head_office.email }}</div>
+      </div>
+      <div class="field">
+        <div class="label">Building Info</div>
+        <div class="value">{{ institution.head_office.building_info }}</div>
+      </div>
+      <div class="field">
+        <div class="label">Street Address</div>
+        <div class="value">{{ institution.head_office.street_address }}</div>
+      </div>
+      <div class="field">
+        <div class="label">City</div>
+        <div class="value">{{ institution.head_office.city }}</div>
+      </div>
+      <div class="field">
+        <div class="label">Country</div>
+        <div class="value">{{ institution.head_office.country }}</div>
+      </div>
+      <div class="field">
+        <div class="label">PhoneNumber</div>
+        <div class="value">{{ institution.head_office.phone_numbers}}</div>
+      </div>
+      <div class="field">
+        <div class="label">Specialisation</div>
+        <div class="value">{{ data?.specialisation }}</div>
+      </div>
+    </div>
+
+    <mat-action-row>
+      <button mat-button color="warn" (click)="prevStep()">Previous</button>
+      <!-- <button mat-button color="primary" (click)="nextStep()">Next</button> -->
+    </mat-action-row>
+  </mat-expansion-panel>
+
+  <!-- <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Day of the trip
+        </mat-panel-title>
+        <mat-panel-description>
+          Inform the date you wish to travel
+          <mat-icon>date_range</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+  
+  
+      <mat-action-row>
+        <button mat-button color="warn" (click)="prevStep()">Previous</button>
+        <button mat-button color="primary" (click)="nextStep()">End</button>
+      </mat-action-row>
+    </mat-expansion-panel> -->
+</mat-accordion>

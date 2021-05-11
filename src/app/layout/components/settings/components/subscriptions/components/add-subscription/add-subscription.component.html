@@ -1,0 +1,137 @@
+<h1 mat-header>Add Subscription</h1>
+<div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <div>
+      <div>
+        <mat-form-field appearance="outline" style="width: 45%; margin-right: 10%">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" type="text" />
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 45%">
+          <mat-label>Select Plan</mat-label>
+          <mat-select formControlName="for">
+            <mat-option *ngFor="let item of ['Free', 'Basic', 'Premium']" [value]="item">{{ item }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline" style="width: 45%; margin-right: 10%">
+          <mat-label>Monthly Payments</mat-label>
+          <input matInput formControlName="amount_per_month" type="text" />
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 45%">
+          <mat-label>Annual Payments</mat-label>
+          <input matInput formControlName="amount_per_year" type="text" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <!-- features start here -->
+    <div formGroupName="features">
+      <div>
+        <div formGroupName="patients" class="feature">
+          <div class="feature-name">
+            <h3>Patients</h3>
+          </div>
+          <div class="feature-details">
+            <mat-form-field appearance="outline">
+              <mat-label>count</mat-label>
+              <input formControlName="count" matInput type="number" />
+            </mat-form-field>
+            <mat-checkbox formControlName="unlimited">Unlimited</mat-checkbox>
+          </div>
+        </div>
+
+        <div formGroupName="doctors" class="feature">
+          <div class="feature-name">
+            <h3>Doctors</h3>
+          </div>
+          <div class="feature-details">
+            <mat-form-field appearance="outline">
+              <mat-label>count</mat-label>
+              <input formControlName="count" matInput type="number" />
+            </mat-form-field>
+            <mat-checkbox formControlName="unlimited">Unlimited</mat-checkbox>
+          </div>
+        </div>
+
+        <div formGroupName="admins" class="feature">
+          <div class="feature-name">
+            <h3>Admins</h3>
+          </div>
+          <div class="feature-details">
+            <mat-form-field appearance="outline">
+              <mat-label>count</mat-label>
+              <input formControlName="count" matInput type="number" />
+            </mat-form-field>
+            <mat-checkbox formControlName="unlimited">Unlimited</mat-checkbox>
+          </div>
+        </div>
+
+        <div formGroupName="files" class="feature">
+          <div class="feature-name">
+            <h3>Files</h3>
+          </div>
+          <div class="feature-details">
+            <mat-form-field appearance="outline">
+              <mat-label>count</mat-label>
+              <input formControlName="count" matInput type="number" />
+            </mat-form-field>
+            <mat-checkbox formControlName="unlimited">Unlimited</mat-checkbox>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div formGroupName="notes" class="feature">
+          <div class="feature-name">
+            <h3>Notes</h3>
+          </div>
+          <div class="feature-details">
+            <mat-checkbox formControlName="available">Available</mat-checkbox>
+          </div>
+        </div>
+
+        <div formGroupName="payments" class="feature">
+          <div class="feature-name">
+            <h3>Payments</h3>
+          </div>
+          <div class="feature-details">
+            <mat-checkbox formControlName="available">Available</mat-checkbox>
+          </div>
+        </div>
+
+        <div formGroupName="schedules" class="feature">
+          <div class="feature-name">
+            <h3>Schedules</h3>
+          </div>
+          <div class="feature-details">
+            <mat-checkbox formControlName="available">Available</mat-checkbox>
+          </div>
+        </div>
+
+        <div formGroupName="reminders" class="feature">
+          <div class="feature-name">
+            <h3>Reminders</h3>
+          </div>
+          <div class="feature-details">
+            <mat-checkbox formControlName="available">Available</mat-checkbox>
+          </div>
+        </div>
+        <div formGroupName="analytics" class="feature">
+          <div class="feature-name">
+            <h3>Analytics</h3>
+          </div>
+          <div class="feature-details">
+            <mat-checkbox formControlName="available">Available</mat-checkbox>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <button mat-stroked-button [disabled]="form.invalid">Save</button>
+    </div>
+  </form>
+</div>

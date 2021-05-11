@@ -1,0 +1,43 @@
+<mat-card class="example-headers-align">
+      <mat-card-header>
+        <mat-card-title>
+          Institution Details
+        </mat-card-title>
+        <mat-card-subtitle>
+          <mat-icon>health_and_safety</mat-icon>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="expansion-content">
+          <div class="field">
+            <div class="label">Institution Name</div>
+            <div class="value">{{data.name}}</div>
+          </div>
+          <div class="field">
+            <div class="label">Head Office</div>
+            <div class="value">{{data.head_office?.building_info}}</div>
+          </div>
+          <div class="field">
+            <div class="label">City</div>
+            <div class="value">{{data.head_office.city}}</div>
+          </div>
+          <div class="field">
+            <div class="label">Country</div>
+            <div class="value">{{data.head_office.country}}</div>
+          </div>
+          <div class="field">
+            <div class="label">Email</div>
+            <div class="value">{{data.head_office?.email}}</div>
+          </div>
+          <div class="field">
+            <div class="label">Institution Cell</div>
+            <div class="value">{{data.head_office.phone_numbers}}</div>
+          </div>
+        </div>
+  
+      </mat-card-content>
+   
+
+
+  </mat-card>
+  

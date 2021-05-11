@@ -1,0 +1,52 @@
+<div>
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Search Subscriptions"
+      #input
+    />
+  </mat-form-field>
+  <button mat-stroked-button (click)="addSubscription()">
+    <mat-icon>add</mat-icon> subscription
+  </button>
+</div>
+
+<mat-table [dataSource]="dataSource">
+  <!-- a-md-data-table-column -->
+  <!-- press ctrl + space to add more column snippet or delete this line -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+  </ng-container>
+
+  <!-- a-md-data-table-column -->
+  <!-- press ctrl + space to add more column snippet or delete this line -->
+  <ng-container matColumnDef="for">
+    <mat-header-cell *matHeaderCellDef> For </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.for }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <button mat-icon-button (click)="viewPlan(element)">
+        <mat-icon>visibility</mat-icon>
+      </button>
+      <button mat-icon-button (click)="deletePlan(element._id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  a-md-data-table-column
+  <!-- press ctrl + space to add more column snippet or delete this line -->
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
+<mat-paginator
+[pageSizeOptions]="[7, 10, 15, 20]"
+showFirstLastButtons
+></mat-paginator>

@@ -1,0 +1,35 @@
+<h1 mat-header>Add Procedure</h1>
+<mat-dialog-content>
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="procedure_name" placeholder="placeholder">
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Type</mat-label>
+                <mat-select formControlName="type">
+                    <mat-option *ngFor="let procedure_type of ['minor', 'intermediate','major','complex','prolonged','other']" [value]="procedure_type">
+                        {{ procedure_type }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Status</mat-label>
+                <mat-select formControlName="status">
+                    <mat-option *ngFor="let status of ['active', 'inactive']" [value]="status">
+                        {{ status }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <button mat-stroked-button type="submit" [disabled]="form.invalid">Save</button>
+        </div>
+    </form>
+</mat-dialog-content>

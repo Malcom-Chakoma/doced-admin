@@ -1,0 +1,52 @@
+<div>
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Search Hospitals"
+      #input
+    />
+  </mat-form-field>
+  <button mat-stroked-button (click)="addHospital()">
+    <mat-icon>add</mat-icon> Hospitals
+  </button>
+</div>
+
+<div>
+  <mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="city">
+      <mat-header-cell *matHeaderCellDef> City</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.city }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="country">
+      <mat-header-cell *matHeaderCellDef> Country</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.country }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-icon-button (click)="viewHospital(element)">
+          <mat-icon>visibility</mat-icon>
+        </button>
+        <button mat-icon-button (click)="deleteHospital(element._id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+  <mat-paginator
+    [pageSizeOptions]="[7, 10, 15, 20]"
+    showFirstLastButtons
+  ></mat-paginator>
+</div>

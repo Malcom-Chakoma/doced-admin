@@ -1,0 +1,25 @@
+<router-outlet></router-outlet>
+<h1>Dashboard
+  <mat-icon>dashboard</mat-icon>
+</h1>
+<section class="cards">
+  <mat-card>
+    <h1><strong>{{doctors?.length}}</strong></h1>
+    Doctors
+    <mat-card-actions>
+      <button mat-icon-button>
+        <mat-icon [routerLink]="['/layout/user']" routerLinkActive="router-link-active" >visibility</mat-icon>view doctors
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card>
+    <h1><strong>{{institutions?.length}}</strong></h1>
+    Institutions
+    <mat-card-actions>
+      <button mat-icon-button >
+        <mat-icon [routerLink]="['/layout/institutions']" routerLinkActive="router-link-active" >visibility</mat-icon>Institutions List
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</section>

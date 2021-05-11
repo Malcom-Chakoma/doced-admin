@@ -1,0 +1,53 @@
+<div>
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Search Specialisations"
+      #input
+    />
+  </mat-form-field>
+  <button mat-stroked-button (click)="addSpecialisation()">
+    <mat-icon>add</mat-icon>
+    specialisation
+  </button>
+</div>
+<div>
+  <mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{ element.specialisation_name }}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="procedures">
+      <mat-header-cell *matHeaderCellDef> Procedures </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <span *ngFor="let procedure of element.procedures">
+          {{ procedure }},
+        </span>
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-icon-button (click)="viewSpecialisation(element)">
+          <mat-icon>visibility</mat-icon>
+        </button>
+        <button mat-icon-button (click)="deleteSpecialisation(element._id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <!-- press ctrl + space to add more column snippet or delete this line -->
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+  <mat-paginator
+  [pageSizeOptions]="[7, 10, 15, 20]"
+  showFirstLastButtons
+></mat-paginator>
+</div>

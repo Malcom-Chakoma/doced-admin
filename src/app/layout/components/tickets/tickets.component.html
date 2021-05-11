@@ -1,0 +1,50 @@
+<!-- <div>
+    <button mat-stroked-button (click)=addTicket()>
+        <mat-icon>add</mat-icon>ticket
+    </button>
+</div> -->
+<div>
+    <mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef> Email
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="subject">
+            <mat-header-cell *matHeaderCellDef> Subject</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.subject}} </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="body">
+            <mat-header-cell *matHeaderCellDef> Body </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.body}} </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="status">
+            <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <button mat-icon-button (click)="viewTicket(element)">
+                    <mat-icon>visibility</mat-icon>
+                </button>
+                <!-- <button mat-stroked-button (click)="activateDeactivate(element)">
+                    {{ element.status === "inactive" ? "activate" : "deactivate" }}
+                </button> -->
+                <!-- <button mat-icon-button (click)="deleteTicket(element._id)">
+                    <mat-icon>delete</mat-icon>
+                </button> -->
+            </mat-cell>
+        </ng-container>
+        
+        <!-- a-md-data-table-column -->
+        <!-- press ctrl + space to add more column snippet or delete this line -->
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    
+</div>

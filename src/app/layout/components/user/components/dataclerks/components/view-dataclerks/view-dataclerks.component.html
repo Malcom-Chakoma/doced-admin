@@ -1,0 +1,38 @@
+<h1 mat-header>Add DataClerks</h1>
+<mat-dialog-content>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          formControlName="dataclerk_name"
+          placeholder="placeHolder"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          formControlName="dataclerk_email"
+          placeholder="placeHolder"
+        />
+      </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="outline">
+            <mat-label>Institution</mat-label>
+            <input
+              matInput
+              formControlName="dataclerk_institution"
+              placeholder="placeHolder"
+            />
+          </mat-form-field>
+    </div>
+    <div>
+      <button mat-stroked-button type="submit" [disabled]="form.invalid">
+        Save
+      </button>
+    </div>
+  </form>
+</mat-dialog-content>

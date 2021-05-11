@@ -1,0 +1,27 @@
+<h1 mat-header>Add Specialisation <mat-icon *ngIf="form.disabled" (click)="form.enable()">edit</mat-icon></h1>
+<mat-dialog-content>
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="specialisation_name" placeholder="placeholder" />
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Select Procedures</mat-label>
+                <mat-select formControlName="procedures" multiple>
+                    <div class="mat-select-search">
+                        <input matInput type="search" placeholder="Search and select procedures"
+                            (keyup)="filterOptions($event.target.value)" />
+                    </div>
+                    <mat-option *ngFor="let procedure of filtered_procedures" [value]="procedure.procedure_name">
+                        {{ procedure.procedure_name }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div *ngIf="form.enabled">
+            <button mat-stroked-button type="submit" [disabled]="form.invalid">Save</button>
+        </div>
+    </form>
+</mat-dialog-content>

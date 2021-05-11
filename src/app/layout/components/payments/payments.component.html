@@ -1,0 +1,44 @@
+<div>
+<button mat-stroked-button (click)=addSubscription()>
+    <mat-icon>add</mat-icon>Payment
+</button>    
+</div>
+
+<div>
+    <mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="duration">
+            <mat-header-cell *matHeaderCellDef> Duration
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.duration}} </mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="expiry_date">
+            <mat-header-cell *matHeaderCellDef>Expiry Date</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.expiry_date}} </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="amount">
+            <mat-header-cell *matHeaderCellDef> Amount</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.amount}} </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="institution">
+            <mat-header-cell *matHeaderCellDef> Institution Name</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.institution?.name}} </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <button mat-icon-button (click)="viewSubscription(element)">
+                <mat-icon>visibility</mat-icon>
+              </button>
+              <button mat-icon-button (click)="deleteSubscription(element._id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</div>

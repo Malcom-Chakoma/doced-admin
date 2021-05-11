@@ -1,0 +1,33 @@
+<h1 mat-header>Add Medical Aid     <mat-icon *ngIf="form.disabled" (click)="form.enable()">edit</mat-icon></h1>
+<mat-dialog-content>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          formControlName="medical_aid_name"
+          placeholder="placeHolder"
+        />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status">
+          <mat-option
+            *ngFor="let status of ['active', 'inactive']"
+            [value]="status"
+          >
+            {{ status }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <button mat-stroked-button type="submit"  *ngIf="form.enabled" [disabled]="form.invalid">
+        Save
+      </button>
+    </div>
+  </form>
+</mat-dialog-content>
