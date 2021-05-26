@@ -36,16 +36,15 @@
               </mat-select>
           </mat-form-field>
       </div>
-        <div>
-            <mat-form-field appearance="outline">
-                <mat-label>Subscription Plan</mat-label>
-                <mat-select>
-                    <mat-option value="premium_plan">Premium Plan</mat-option>
-                    <mat-option value="standard_plan">Standard Plan</mat-option>
-                    <mat-option value="">Standard Plan</mat-option>
-                  </mat-select>
-              </mat-form-field>
-        </div>
+      <div>
+        <mat-form-field appearance="outline">
+            <mat-label>Subscription Plan</mat-label>
+            <mat-select formControlName="plan" >
+                <mat-option *ngFor="let plan of plans" [value]="plan.features">
+                    {{ plan.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
         <div>
             <mat-form-field appearance="outline">
                 <mat-label>Amount</mat-label>
