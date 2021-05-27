@@ -10,12 +10,13 @@ import { SubscriptionsService } from 'src/app/services/subscriptions.service';
 })
 export class ViewPaymentComponent implements OnInit {
 form:FormGroup
+
   constructor(private fb:FormBuilder,@Inject(MAT_DIALOG_DATA) public data:any, private subscriptionsService:SubscriptionsService) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
       duration:[this.data.duration,[Validators.required]],
-      expiry_date:[this.data.expiry_date,[Validators.required]],
+      // expiry_date:[this.data.expiry_date,[Validators.required]],
       amount:[this.data.amount,[Validators.required]],
       institution_name:[this.data.institution_name,[Validators.required]]
 

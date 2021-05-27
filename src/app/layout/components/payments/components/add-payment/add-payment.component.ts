@@ -14,6 +14,7 @@ import { SubscriptionsService } from '../../../../../services/subscriptions.serv
 export class AddPaymentComponent implements OnInit {
 
   form: FormGroup
+  calculated_amount = 0
   institution = []
   plans = []
   filtered_institutions = this.institution;
@@ -40,15 +41,41 @@ export class AddPaymentComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.fb.group({
       duration: ['', [Validators.required]],
-      expiry_date: ['', [Validators.required]],
+      // expiry_date: ['', [Validators.required]],
       institution: ['', [Validators.required]],
-      plan: ['',[Validators.required]],
+      plan: [null,[Validators.required]],
       amount: ['', [Validators.required]],
     });
+    this.form.controls['duration'].valueChanges.subscribe(x=>{
+      
+      this.calculate_amount(this.form.value.plan)})
+
+    this.form.controls['plan'].valueChanges.subscribe(x=>{
+      console.log(x)
+      this.calculate_amount(x)
+    })
+
+  }
+  calculate_amount(plan){
+    
+    if(plan != null){
+      if(this.form.value.duration === 'monthly'){
+        this.calculated_amount = plan.amount_per_month
+      }else
+      {
+        this.calculated_amount = plan.amount_per_year
+      }
+
+    }
+    
+
   }
 
   onSubmit() {
+    this.form.value.amount = this.calculated_amount
+    console.log(this.form.value)
     this.subscriptionsService.addSubscription(this.form.value);
+    
   }
   filterOptions(value:string){
     console.log(value)

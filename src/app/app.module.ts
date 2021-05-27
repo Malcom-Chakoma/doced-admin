@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import {AuthInteceptor} from "./helpers/auth.interceptor";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //angular material
@@ -145,7 +145,10 @@ import { ViewPaymentComponent } from './layout/components/payments/components/vi
     MatSidenavModule,
     MatListModule,
   ],
-  providers: [ ],
+  providers: [ 
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInteceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
+  
 })
 export class AppModule {}
