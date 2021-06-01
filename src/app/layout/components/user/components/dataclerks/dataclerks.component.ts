@@ -5,6 +5,7 @@ import { DataclerkService } from 'src/app/services/dataclerk.service';
 import { InstitutionsService } from 'src/app/services/institutions.service';
 import { AddDataclerksComponent } from './components/add-dataclerks/add-dataclerks.component';
 import { ChangeInstitutionComponent } from './components/change-institution/change-institution.component';
+import { ViewDataclerksComponent } from './components/view-dataclerks/view-dataclerks.component';
 
 @Component({
   selector: 'app-dataclerks',
@@ -28,13 +29,20 @@ export class DataclerksComponent implements OnInit {
 
 addDataClerk(){
   this.dialog.open(AddDataclerksComponent,{
-    width:'30%'
+    width:'40%'
   })
 }
+
+// viewDataClerk(dataClerk:any){
+//   this.dialog.open(ViewDataclerksComponent,{
+//     width:"40%", data:dataClerk
+//   })
+// }
 
 changeInstitution(value:any){
   this.dialog.open(ChangeInstitutionComponent,{
     width:"30%", data:value
   })
 }
+
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -11,7 +11,7 @@ import { ViewProcedureComponent } from './components/view-procedure/view-procedu
   templateUrl: './procedures.component.html',
   styleUrls: ['./procedures.component.scss']
 })
-export class ProceduresComponent implements OnInit {
+export class ProceduresComponent implements OnInit, AfterViewInit{
 dataSource;
 displayedColumns=['name','type','status','actions']
 
@@ -25,6 +25,10 @@ displayedColumns=['name','type','status','actions']
       this.dataSource = new MatTableDataSource(res)
       this.dataSource.paginator = this.paginator;
     })
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
   }
 
   addProcedure(){

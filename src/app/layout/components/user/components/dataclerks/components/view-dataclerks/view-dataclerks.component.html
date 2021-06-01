@@ -1,34 +1,66 @@
-<h1 mat-header>Add DataClerks</h1>
+<h1 mat-header>View DataClerks</h1>
 <mat-dialog-content>
   <form (ngSubmit)="onSubmit()" [formGroup]="form">
     <div>
       <mat-form-field appearance="outline">
-        <mat-label>Name</mat-label>
+        <mat-label>FirstName</mat-label>
         <input
           matInput
-          formControlName="dataclerk_name"
-          placeholder="placeHolder"
+          formControlName="first_name"
+          placeholder="Enter Name"
         />
       </mat-form-field>
+      </div>
+      <div>
+      <mat-form-field appearance="outline">
+        <mat-label>LastName</mat-label>
+        <input
+          matInput
+          formControlName="last_name"
+          placeholder="Enter LastName"
+        />
+      </mat-form-field>
+      </div>
+      <div>
       <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
         <input
           matInput
-          formControlName="dataclerk_email"
-          placeholder="placeHolder"
+          formControlName="email"
+          placeholder="Enter Email"
+        />
+      </mat-form-field>
+      </div>
+      <div>
+      <mat-form-field appearance="outline">
+        <mat-label>PhoneNumber</mat-label>
+        <input
+          matInput
+          formControlName="phone_number"
+          placeholder="Enter PhoneNumber"
         />
       </mat-form-field>
     </div>
     <div>
-        <mat-form-field appearance="outline">
-            <mat-label>Institution</mat-label>
-            <input
-              matInput
-              formControlName="dataclerk_institution"
-              placeholder="placeHolder"
-            />
-          </mat-form-field>
+      <mat-form-field appearance="outline">
+          <mat-label>Select Institution</mat-label>
+          <mat-select formControlName="institution" >
+              <div class="mat-select-search">
+                  <input matInput type="search" placeholder="Search and select institution"
+                      (keyup)="filterOptions($event.target.value)" />
+              </div>
+              <mat-option *ngFor="let institution of filtered_institutions" [value]="institution._id">
+                  {{ institution.name }}</mat-option>
+          </mat-select>
+      </mat-form-field>
+  </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Default Password</mat-label>
+        <input matInput formControlName="password" />
+      </mat-form-field>
     </div>
+    
     <div>
       <button mat-stroked-button type="submit" [disabled]="form.invalid">
         Save

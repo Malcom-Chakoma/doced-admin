@@ -3,14 +3,17 @@
   <form (ngSubmit)="onSubmit()" [formGroup]="form">
     <div>
       <div>
-        <mat-form-field appearance="outline" style="width: 45%; margin-right: 10%">
-          <mat-label>Name</mat-label>
-          <input matInput formControlName="name" type="text" />
+        <mat-form-field appearance="outline" style="width: 45%">
+          <mat-label>Target Group</mat-label>
+          <mat-select formControlName="for">
+            <mat-option *ngFor="let item of ['private', 'group', 'institution']" [value]="item">{{ item | titlecase }}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
         <mat-form-field appearance="outline" style="width: 45%">
-          <mat-label>Select Plan</mat-label>
-          <mat-select formControlName="for">
-            <mat-option *ngFor="let item of ['Free', 'Basic', 'Premium']" [value]="item">{{ item }}
+          <mat-label>Plan Name</mat-label>
+          <mat-select formControlName="name">
+            <mat-option *ngFor="let item of ['silver', 'gold', 'platinum']" [value]="item">{{ item | titlecase }}
             </mat-option>
           </mat-select>
         </mat-form-field>
@@ -39,7 +42,18 @@
               <mat-label>count</mat-label>
               <input formControlName="count" matInput type="number" />
             </mat-form-field>
-            <mat-checkbox formControlName="unlimited">Unlimited</mat-checkbox>
+            <mat-form-field appearance="outline">
+              <mat-label>foreach_extra</mat-label>
+              <input formControlName="foreach_extra" matInput type="number" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Monthly Price</mat-label>
+              <input formControlName="foreach_extra_monthly_amount" matInput type="number" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Annual Price</mat-label>
+              <input formControlName="foreach_extra_annual_amount" matInput type="number" />
+            </mat-form-field>
           </div>
         </div>
 
@@ -52,7 +66,18 @@
               <mat-label>count</mat-label>
               <input formControlName="count" matInput type="number" />
             </mat-form-field>
-            <mat-checkbox formControlName="unlimited">Unlimited</mat-checkbox>
+            <mat-form-field appearance="outline">
+              <mat-label>foreach_extra</mat-label>
+              <input formControlName="foreach_extra" matInput type="number" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Monthly Price</mat-label>
+              <input formControlName="foreach_extra_monthly_amount" matInput type="number" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Annual Price</mat-label>
+              <input formControlName="foreach_extra_annual_amount" matInput type="number" />
+            </mat-form-field>
           </div>
         </div>
 
@@ -65,7 +90,18 @@
               <mat-label>count</mat-label>
               <input formControlName="count" matInput type="number" />
             </mat-form-field>
-            <mat-checkbox formControlName="unlimited">Unlimited</mat-checkbox>
+            <mat-form-field appearance="outline">
+              <mat-label>foreach_extra</mat-label>
+              <input formControlName="foreach_extra" matInput type="number" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Monthly Price</mat-label>
+              <input formControlName="foreach_extra_monthly_amount" matInput type="number" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Annual Price</mat-label>
+              <input formControlName="foreach_extra_annual_amount" matInput type="number" />
+            </mat-form-field>
           </div>
         </div>
 
@@ -78,9 +114,21 @@
               <mat-label>count</mat-label>
               <input formControlName="count" matInput type="number" />
             </mat-form-field>
-            <mat-checkbox formControlName="unlimited">Unlimited</mat-checkbox>
+            <mat-form-field appearance="outline">
+              <mat-label>foreach_extra</mat-label>
+              <input formControlName="foreach_extra" matInput type="number" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Monthly Price</mat-label>
+              <input formControlName="foreach_extra_monthly_amount" matInput type="number" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Annual Price</mat-label>
+              <input formControlName="foreach_extra_annual_amount" matInput type="number" />
+            </mat-form-field>
           </div>
         </div>
+     
       </div>
 
       <div>
@@ -119,19 +167,28 @@
             <mat-checkbox formControlName="available">Available</mat-checkbox>
           </div>
         </div>
-        <div formGroupName="analytics" class="feature">
+        
+        <div class="feature">
           <div class="feature-name">
             <h3>Analytics</h3>
+
           </div>
           <div class="feature-details">
-            <mat-checkbox formControlName="available">Available</mat-checkbox>
+            <mat-form-field appearance="outline" style="width: 45%">
+              <mat-label>Analytics</mat-label>
+              <mat-select formControlName="analytics">
+                <mat-option *ngFor="let item of ['Basic', 'Advanced', 'Executive']" [value]="item">{{ item }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
           </div>
         </div>
+        
       </div>
     </div>
 
     <div>
-      <button mat-stroked-button [disabled]="form.invalid">Save</button>
+      <button mat-stroked-button>Save</button>
     </div>
   </form>
 </div>

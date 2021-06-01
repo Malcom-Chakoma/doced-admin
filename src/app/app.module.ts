@@ -145,10 +145,9 @@ import { ViewPaymentComponent } from './layout/components/payments/components/vi
     MatSidenavModule,
     MatListModule,
   ],
-  providers: [ 
+  providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInteceptor, multi: true },
   ],
   bootstrap: [AppComponent],
-  
 })
 export class AppModule {}

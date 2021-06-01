@@ -14,13 +14,13 @@ export interface Subscription {
 
 }
 export interface Features {
-    patients: { count: number; unlimited: boolean };
-    doctors: { count: number; unlimited: boolean };
-    admins: { count: number; unlimited: boolean };
-    files: { count: number; unlimited: boolean };
+    patients: { count: number; foreach_extra : number; foreach_extra_monthly_amount:number; foreach_extra_annual_amount:number };
+    doctors: { count: number; foreach_extra :number; foreach_extra_monthly_amount:number; foreach_extra_annual_amount:number };
+    admins: { count: number; foreach_extra:number; foreach_extra_monthly_amount:number; foreach_extra_annual_amount:number };
+    files: { count: number; foreach_extra:number; foreach_extra_monthly_amount:number; foreach_extra_annual_amount:number};
     notes: { available: boolean };
     payments: { available: boolean };
     schedules: { available: boolean };
     reminders: { available: boolean };
-    analytics: { available: boolean };
+    analytics: { type: string };
 }

@@ -5,7 +5,7 @@
     <form (ngSubmit)="onSubmit()" [formGroup]="form">
         <div>
             <mat-form-field appearance="outline">
-                <mat-label>Duration(days)</mat-label>
+                <mat-label>Duration</mat-label>
                 <mat-select formControlName="duration" >
                     <mat-option *ngFor="let duration of ['monthly','yearly']" [value]="duration">
                         {{duration}}
@@ -18,11 +18,8 @@
           <mat-form-field appearance="outline">
               <mat-label>Select Institution</mat-label>
               <mat-select formControlName="institution" >
-                  <div class="mat-select-search">
-                      <input matInput type="search" placeholder="Search and select institution"
-                          (keyup)="filterOptions($event.target.value)" />
-                  </div>
-                  <mat-option *ngFor="let institution of filtered_institutions" [value]="institution._id">
+                <mat-option value="null">none</mat-option>
+                  <mat-option *ngFor="let institution of institution" [value]="institution._id">
                       {{ institution.name }}</mat-option>
               </mat-select>
           </mat-form-field>

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -11,7 +11,7 @@ import { ViewSpecialisationsComponent } from './components/view-specialisations/
   templateUrl: './specialisations.component.html',
   styleUrls: ['./specialisations.component.scss'],
 })
-export class SpecialisationsComponent implements OnInit {
+export class SpecialisationsComponent implements OnInit , AfterViewInit{
   displayedColumns = ['name', 'procedures', 'actions'];
   dataSource: MatTableDataSource<unknown>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -28,6 +28,10 @@ export class SpecialisationsComponent implements OnInit {
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
     });
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
   }
 
   addSpecialisation() {

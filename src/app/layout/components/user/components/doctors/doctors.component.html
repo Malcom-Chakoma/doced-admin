@@ -7,23 +7,23 @@
     <div>
       <mat-table [dataSource]="dataSource">
         <ng-container matColumnDef="title">
-          <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{ element.title }} </mat-cell>
+          <mat-header-cell *matHeaderCellDef > Title </mat-header-cell>
+          <mat-cell *matCellDef="let element" (click)=viewDoctors(element)> {{ element.title }} </mat-cell>
         </ng-container>
   
         <ng-container matColumnDef="first_name">
           <mat-header-cell *matHeaderCellDef> First Name</mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{ element.first_name }} </mat-cell>
+          <mat-cell *matCellDef="let element" (click)=viewDoctors(element)> {{ element.first_name }} </mat-cell>
         </ng-container>
   
         <ng-container matColumnDef="last_name">
           <mat-header-cell *matHeaderCellDef> Last Name</mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{ element.last_name }} </mat-cell>
+          <mat-cell *matCellDef="let element" (click)=viewDoctors(element)> {{ element.last_name }} </mat-cell>
         </ng-container>
   
         <ng-container matColumnDef="email">
           <mat-header-cell *matHeaderCellDef> Email</mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{ element.email }} </mat-cell>
+          <mat-cell *matCellDef="let element" (click)=viewDoctors(element)> {{ element.email }} </mat-cell>
         </ng-container>
   
         <ng-container matColumnDef="actions">

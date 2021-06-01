@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit ,Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -11,7 +11,7 @@ import { ViewUserComponent } from './components/view-user/view-user.component';
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss'],
 })
-export class UsersComponent implements OnInit {
+export class UsersComponent implements OnInit, AfterViewInit{
   dataSource;
   displayedColumns = [
     'first_name',
@@ -32,6 +32,11 @@ export class UsersComponent implements OnInit {
         this.dataSource.paginator = this.paginator;}
     );
     
+  }
+
+  ngAfterViewInit() {
+   
+    this.dataSource.paginator = this.paginator;
   }
 
   addUser() {

@@ -21,7 +21,6 @@ export class SigninComponent implements OnInit {
 
   onSubmit(){
     this.authService.signIn(this.form.value)
-    
   }
 
 }

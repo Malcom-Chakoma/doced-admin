@@ -16,34 +16,34 @@
   <mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="first_name">
       <mat-header-cell *matHeaderCellDef> First Name </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{ element.first_name }} </mat-cell>
+      <mat-cell *matCellDef="let element" (click)="viewUser(element)"> {{ element.first_name }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="middle_initial">
       <mat-header-cell *matHeaderCellDef> Middle Initial</mat-header-cell>
-      <mat-cell *matCellDef="let element">
+      <mat-cell *matCellDef="let element" (click)="viewUser(element)">
         {{ element.middle_initial }}
       </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="last_name">
       <mat-header-cell *matHeaderCellDef> Last Name</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{ element.last_name }} </mat-cell>
+      <mat-cell *matCellDef="let element" (click)="viewUser(element)"> {{ element.last_name }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="email">
       <mat-header-cell *matHeaderCellDef> Email</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{ element.email }} </mat-cell>
+      <mat-cell *matCellDef="let element" (click)="viewUser(element)"> {{ element.email }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="user_type">
       <mat-header-cell *matHeaderCellDef> User Type</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{ element.user_type }} </mat-cell>
+      <mat-cell *matCellDef="let element" (click)="viewUser(element)"> {{ element.user_type }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="department">
       <mat-header-cell *matHeaderCellDef> Department</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{ element.department }} </mat-cell>
+      <mat-cell *matCellDef="let element" (click)="viewUser(element)"> {{ element.department }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="actions">

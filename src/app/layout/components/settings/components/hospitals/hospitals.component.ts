@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -12,7 +12,7 @@ import { ViewHospitalComponent } from './components/view-hospital/view-hospital.
   templateUrl: './hospitals.component.html',
   styleUrls: ['./hospitals.component.scss'],
 })
-export class HospitalsComponent implements OnInit {
+export class HospitalsComponent implements OnInit , AfterViewInit{
   displayedColumns = ['name', 'city', 'country', 'actions'];
   dataSource: MatTableDataSource<unknown>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -27,6 +27,11 @@ export class HospitalsComponent implements OnInit {
       this.dataSource = new MatTableDataSource(hospitals);
       this.dataSource.paginator = this.paginator;
     });
+  }
+
+  ngAfterViewInit() {
+   
+    this.dataSource.paginator = this.paginator;
   }
 
   addHospital() {

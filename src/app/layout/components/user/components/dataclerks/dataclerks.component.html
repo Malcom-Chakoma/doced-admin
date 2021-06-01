@@ -25,6 +25,9 @@
         <ng-container matColumnDef="action">
             <mat-header-cell *matHeaderCellDef></mat-header-cell>
             <mat-cell *matCellDef="let element">
+                <!-- <button mat-icon-button (click)="viewDataClerk(element)"> 
+                    <mat-icon>visibility</mat-icon>
+                </button> -->
                 <button mat-stroked-button (click)="changeInstitution(element)">
                     change
                 </button>

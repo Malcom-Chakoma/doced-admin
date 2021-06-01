@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -11,7 +11,7 @@ import { ViewSubscriptionComponent } from './components/view-subscription/view-s
   templateUrl: './subscriptions.component.html',
   styleUrls: ['./subscriptions.component.scss'],
 })
-export class SubscriptionsComponent implements OnInit {
+export class SubscriptionsComponent implements OnInit , AfterViewInit {
   dataSource;
   displayedColumns = ['name', 'for', 'actions'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -30,16 +30,20 @@ export class SubscriptionsComponent implements OnInit {
     });
   }
 
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+
   addSubscription() {
     this.dialog.open(AddSubscriptionComponent, {
-      width: '80%',
+      width: '700px',
       height: '90%',
     });
   }
 
   viewPlan(plan) {
     this.dialog.open(ViewSubscriptionComponent, {
-      width: '80%',
+      width: '900px',
       height: '90%',
       data: plan,
     });

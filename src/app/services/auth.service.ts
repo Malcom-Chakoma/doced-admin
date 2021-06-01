@@ -9,10 +9,11 @@ import { NotificationService } from './notification.service';
 })
 export class AuthService {
   constructor(private http: HttpClient, private notificationService:NotificationService, private router:Router) {}
+  
   signIn(value: any) {
     this.http.post(environment.api_url + 'admins/signin', value).subscribe(
       ({accessToken,user}:any) => {
-
+        
         localStorage.setItem('user',JSON.stringify(user))
         localStorage.setItem('token',JSON.stringify(accessToken))
         this.notificationService.successNotification("Welcome !!!")

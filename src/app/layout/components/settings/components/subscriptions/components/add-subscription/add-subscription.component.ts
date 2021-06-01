@@ -19,25 +19,34 @@ export class AddSubscriptionComponent implements OnInit {
       features: this.fb.group({
         patients: this.fb.group({
           count: ['', [Validators.required]],
-          unlimited: [false, [Validators.required]],
+          foreach_extra: ['', [Validators.required]],
+          foreach_extra_monthly_amount: ['', [Validators.required]],
+          foreach_extra_annual_amount: ['', [Validators.required]],
         }),
         doctors: this.fb.group({
           count: ['', [Validators.required]],
-          unlimited: [false, [Validators.required]],
+          foreach_extra: ['', [Validators.required]],
+          foreach_extra_monthly_amount: ['', [Validators.required]],
+          foreach_extra_annual_amount: ['', [Validators.required]],
         }),
         admins: this.fb.group({
           count: ['', [Validators.required]],
-          unlimited: [false, [Validators.required]],
+          foreach_extra: ['', [Validators.required]],
+          foreach_extra_monthly_amount: ['', [Validators.required]],
+          foreach_extra_annual_amount: ['', [Validators.required]],
+
         }),
         files: this.fb.group({
           count: ['', [Validators.required]],
-          unlimited: [false, [Validators.required]],
+          foreach_extra: ['', [Validators.required]],
+          foreach_extra_monthly_amount: ['', [Validators.required]],
+          foreach_extra_annual_amount: ['', [Validators.required]],
         }),
         notes: this.fb.group({ available: [false, [Validators.required]] }),
         payments: this.fb.group({ available: [false, [Validators.required]] }),
         schedules: this.fb.group({ available: [false, [Validators.required]] }),
         reminders: this.fb.group({ available: [false, [Validators.required]] }),
-        analytics: this.fb.group({ available: [false, [Validators.required]] }),
+        analytics:['', [Validators.required]],
       }),
     });
   }

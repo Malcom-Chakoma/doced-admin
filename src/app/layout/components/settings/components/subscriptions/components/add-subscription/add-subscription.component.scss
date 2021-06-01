@@ -3,14 +3,23 @@
     flex-direction: row;
     align-items: center;
     div{
-        flex-basis: 50%;
+    
     }
 
-    .feature-details{
-        mat-form-field{
-            width: 100px;
-            margin-right: 10px;
-        }
-    }
     
+    
+}
+
+.feature-name{
+    width:120px;
+}
+
+.feature-details{
+    flex-grow: 1;
+    mat-form-field{
+        width: 100px;
+        margin-right: 10px;
+
+        
+    }
 }

@@ -1,29 +1,34 @@
-<!-- <div>
-    <button mat-stroked-button (click)=addTicket()>
-        <mat-icon>add</mat-icon>ticket
-    </button>
-</div> -->
+<mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Search User"
+      #input
+    />
+  </mat-form-field>
+
 <div>
     <mat-table [dataSource]="dataSource">
         <ng-container matColumnDef="email">
             <mat-header-cell *matHeaderCellDef> Email
             </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+            <mat-cell *matCellDef="let element" (click)="viewTicket(element)"> {{element.email}} </mat-cell>
         </ng-container>
     
         <ng-container matColumnDef="subject">
             <mat-header-cell *matHeaderCellDef> Subject</mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.subject}} </mat-cell>
+            <mat-cell *matCellDef="let element" (click)="viewTicket(element)"> {{element.subject}} </mat-cell>
         </ng-container>
         
         <ng-container matColumnDef="body">
             <mat-header-cell *matHeaderCellDef> Body </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.body}} </mat-cell>
+            <mat-cell *matCellDef="let element" (click)="viewTicket(element)"> {{element.body}} </mat-cell>
         </ng-container>
         
         <ng-container matColumnDef="status">
             <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
+            <mat-cell *matCellDef="let element" (click)="viewTicket(element)"> {{element.status}} </mat-cell>
         </ng-container>
         
         <ng-container matColumnDef="actions">
@@ -46,5 +51,6 @@
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
+  <mat-paginator [pageSizeOptions]="[7, 10, 15, 20]" showFirstLastButtons></mat-paginator>
     
 </div>

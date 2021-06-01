@@ -24,25 +24,34 @@ export class ViewSubscriptionComponent implements OnInit {
       features: this.fb.group({
         patients: this.fb.group({
           count: [features.patients.count, [Validators.required]],
-          unlimited: [features.patients.unlimited, [Validators.required]],
+          foreach_extra: [features.patients.foreach_extra, [Validators.required]],
+          foreach_extra_monthly_amount: [features.patients.foreach_extra_monthly_amount, [Validators.required]],
+          foreach_extra_annual_amount: [features.patients.foreach_extra_annual_amount, [Validators.required]],
+
         }),
         doctors: this.fb.group({
           count: [features.doctors.count, [Validators.required]],
-          unlimited: [features.doctors.unlimited, [Validators.required]],
+          foreach_extra: [features.doctors.foreach_extra, [Validators.required]],
+          foreach_extra_monthly_amount: [features.doctors.foreach_extra_monthly_amount, [Validators.required]],
+          foreach_extra_annual_amount: [features.doctors.foreach_extra_annual_amount, [Validators.required]],
         }),
         admins: this.fb.group({
           count: [features.admins.count, [Validators.required]],
-          unlimited: [features.admins.unlimited, [Validators.required]],
+          foreach_extra: [features.admins.foreach_extra, [Validators.required]],
+          foreach_extra_monthly_amount: [features.admins.foreach_extra_monthly_amount, [Validators.required]],
+          foreach_extra_annual_amount: [features.admins.foreach_extra_annual_amount, [Validators.required]],
         }),
         files: this.fb.group({
           count: [features.files.count, [Validators.required]],
-          unlimited: [features.files.unlimited, [Validators.required]],
+          foreach_extra: [features.files.foreach_extra, [Validators.required]],
+          foreach_extra_monthly_amount: [features.files.foreach_extra_monthly_amount, [Validators.required]],
+          foreach_extra_annual_amount: [features.files.foreach_extra_annual_amount, [Validators.required]],
         }),
         notes: this.fb.group({ available: [features.notes.available, [Validators.required]] }),
         payments: this.fb.group({ available: [features.payments.available, [Validators.required]] }),
         schedules: this.fb.group({ available: [features.schedules.available, [Validators.required]] }),
         reminders: this.fb.group({ available: [features.reminders.available, [Validators.required]] }),
-        analytics: this.fb.group({ available: [features.analytics.available, [Validators.required]] }),
+        analytics: [this.data.features.analytics, [Validators.required]],
       }),
     });
     this.form.disable()

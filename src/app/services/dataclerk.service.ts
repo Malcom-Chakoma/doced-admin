@@ -24,7 +24,7 @@ export class DataclerkService {
 
   addDataClerk(value: User) {
     value.timestamp = +new Date();
-    this.http.post(environment.api_url + 'users/data-clerk', value).subscribe(
+    this.http.post(environment.api_url + 'users/dataclerk', value).subscribe(
       (users) => {
         this.getDataClerk();
         this.dialog.closeAll();

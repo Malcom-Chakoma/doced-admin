@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { TicketsService } from './../../../services/tickets.service';
 import { ViewTicketComponent } from './components/view-ticket/view-ticket.component';
@@ -9,9 +10,12 @@ import { ViewTicketComponent } from './components/view-ticket/view-ticket.compon
   templateUrl: './tickets.component.html',
   styleUrls: ['./tickets.component.scss'],
 })
-export class TicketsComponent implements OnInit {
+export class TicketsComponent implements OnInit, AfterViewInit {
   dataSource: MatTableDataSource<unknown>;
   displayedColumns = ['email', 'subject', 'body', 'actions'];
+  
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  
   constructor(
     private dialog: MatDialog,
     private ticketsService: TicketsService
@@ -21,8 +25,15 @@ export class TicketsComponent implements OnInit {
     
     this.ticketsService.tickets$.subscribe((tickets) => {
       console.log(tickets);
-      this.dataSource = new MatTableDataSource(tickets);
+      this.dataSource = new MatTableDataSource(tickets)
+      this.dataSource.paginator = this.paginator;
+
     });
+  }
+
+  ngAfterViewInit() {
+   
+    this.dataSource.paginator = this.paginator;
   }
   // addTicket(){
   //   this.dialog.open(AddTicketComponent,{
@@ -45,5 +56,10 @@ export class TicketsComponent implements OnInit {
     let status = 'active';
     if (value.status === 'active') status = 'inactive';
     this.ticketsService.updateTicket(value._id, { status: status });
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }

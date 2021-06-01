@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -12,7 +12,7 @@ import { ViewMedicalAidComponent } from './components/view-medical-aid/view-medi
   templateUrl: './medical-aid.component.html',
   styleUrls: ['./medical-aid.component.scss'],
 })
-export class MedicalAidComponent implements OnInit {
+export class MedicalAidComponent implements OnInit ,AfterViewInit{
   dataSource: MatTableDataSource<unknown>;
   displayedColumns = ['name', 'status', 'actions'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -31,6 +31,11 @@ export class MedicalAidComponent implements OnInit {
       }
 );
     
+  }
+
+  ngAfterViewInit() {
+   
+    this.dataSource.paginator = this.paginator;
   }
 
   addMedicalAid() {

@@ -17,15 +17,15 @@
   <!-- a-md-data-table-column -->
   <!-- press ctrl + space to add more column snippet or delete this line -->
   <ng-container matColumnDef="name">
-    <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+    <mat-header-cell *matHeaderCellDef> Plan</mat-header-cell>
+    <mat-cell *matCellDef="let element" (click)="viewPlan(element)"> {{ element.name }} </mat-cell>
   </ng-container>
 
   <!-- a-md-data-table-column -->
   <!-- press ctrl + space to add more column snippet or delete this line -->
   <ng-container matColumnDef="for">
-    <mat-header-cell *matHeaderCellDef> For </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{ element.for }} </mat-cell>
+    <mat-header-cell *matHeaderCellDef>Target Group </mat-header-cell>
+    <mat-cell *matCellDef="let element" (click)="viewPlan(element)"> {{ element.for }} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="actions">
