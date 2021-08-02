@@ -11,12 +11,16 @@
   <mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef> Institution Name </mat-header-cell>
-      <mat-cell *matCellDef="let element" (click)="viewInstitutions(element)"> {{ element.name }} </mat-cell>
+      <mat-cell *matCellDef="let element" (click)="viewInstitutions(element)">
+        {{ element.name }}
+      </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="type">
       <mat-header-cell *matHeaderCellDef> Type</mat-header-cell>
-      <mat-cell *matCellDef="let element" (click)="viewInstitutions(element)"> {{ element.type }} </mat-cell>
+      <mat-cell *matCellDef="let element" (click)="viewInstitutions(element)">
+        {{ element.type }}
+      </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="head_office">
@@ -46,6 +50,4 @@
     <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
   </mat-table>
   <mat-paginator [pageSizeOptions]="[7, 10, 25, 100]"></mat-paginator>
-  
-
 </div>

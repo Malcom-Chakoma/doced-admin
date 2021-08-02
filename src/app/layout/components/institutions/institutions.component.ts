@@ -50,7 +50,7 @@ export class InstitutionsComponent implements OnInit ,AfterViewInit {
 
   viewInstitutions(institution) {
     this.dialog.open(ViewInstitutionsComponent, {
-      width: '80%',
+      width: '70%',
       data: institution,
     });
   }

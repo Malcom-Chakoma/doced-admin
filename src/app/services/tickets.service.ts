@@ -19,23 +19,7 @@ export class TicketsService {
   ) {
     this.getTicket();
   }
-  // addTicket(ticket:any){
-  //   let ts = {
-  //     email:ticket.email,
-  //     subject:ticket.subject,
-  //     body:ticket.body,
-  //     status:status,
-  //     timestamp: + new Date(),
-  //   };
-  //   this.http.post(environment.api_url + 'ticket', ts).subscribe((tickets)=>{
-  //     this.dialog.closeAll();
-  //     this.notificationService.successNotification('Ticket Added');
-  //     this.getTicket();
-  //   },({error})=>{
-  //     this.notificationService.errorNotification(error.message);
-  //     console.log(error);
-  //   })
-  // }
+
   getTicket() {
     this.http.get(environment.api_url + 'ticket').subscribe(
       (tickets) => {

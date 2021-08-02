@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: '', component: SigninComponent,canActivate: [DeAuthGuard] },
   { path: 'signin', component: SigninComponent, canActivate: [DeAuthGuard] },
   { path: 'signup', component: SignupComponent, canActivate: [DeAuthGuard] },
+  
   {
     path: "layout", component: LayoutComponent,
     canActivate: [AuthGuard],
@@ -25,6 +26,7 @@ const routes: Routes = [
       { path: '', component: DashboardComponent },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'user', component: UserComponent },
+    
       { path: 'institutions', component: InstitutionsComponent },
       { path: 'payments', component: PaymentsComponent },
       { path: 'settings', component: SettingsComponent },

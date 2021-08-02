@@ -20,7 +20,7 @@
           <mat-form-field appearance="outline" style="width: 45%">
             <mat-label>Plan Name</mat-label>
             <mat-select formControlName="name">
-              <mat-option *ngFor="let item of ['silver', 'gold', 'platinum']" [value]="item">{{ item | titlecase }}
+              <mat-option *ngFor="let item of ['standard', 'premium']" [value]="item">{{ item | titlecase }}
               </mat-option>
             </mat-select>
           </mat-form-field>

@@ -21,7 +21,8 @@ export class DoctorsComponent implements OnInit, AfterViewInit {
     this.doctorsService.users$.subscribe(
       (users) => {(this.dataSource = new MatTableDataSource(users))
         console.log(users)
-        this.dataSource.paginator = this.paginator;}
+        this.dataSource.paginator = this.paginator;
+      }
     );
   }
 
