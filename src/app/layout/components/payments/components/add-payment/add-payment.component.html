@@ -16,7 +16,7 @@
         </div>
         <div>
           <mat-form-field appearance="outline">
-              <mat-label>Select Institution</mat-label>
+              <mat-label>Select Institutions</mat-label>
               <mat-select formControlName="institution" >
                 <mat-option value="null">none</mat-option>
                   <mat-option *ngFor="let institution of institution" [value]="institution._id">
@@ -24,6 +24,7 @@
               </mat-select>
           </mat-form-field>
       </div>
+
       <div>
         <mat-form-field appearance="outline">
             <mat-label>Subscription Plan</mat-label>
